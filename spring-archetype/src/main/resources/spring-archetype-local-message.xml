@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>MessageResources</value>
+                <value>i18n/MessageResources</value>
+                <value>META-INF/MessageResources</value>
+            </list>
+        </property>
+        <!-- 如果在资源文件中没找到指定的code,则抛异常,便于开发时纠错 -->
+        <property name="useCodeAsDefaultMessage" value="false" />
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <!-- spring其实用的是hibernate的validate的实现 -->
+    <bean id="validator"
+          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <!-- 替代hibernate-validator提供的Message，从而实现从Spring的消息文件中获取国际化消息,从hibernate-validator4.1版本开始支持 -->
+        <property name="validationMessageSource" ref="messageSource" />
+    </bean>
+
+<!--    方法入参校验器 对于使用类@Validate注解标注的类，会自动为类中的方法添加切面进行校验，当然方法入参首先必须要使用了符合jsr303规范的校验注解-->
+<!--    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor">
+        <property name="validator" ref="validator"></property>
+    </bean>-->
+
+</beans>

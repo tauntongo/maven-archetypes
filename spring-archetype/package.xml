@@ -1,0 +1,44 @@
+<assembly xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/assembly-1.0.0.xsd">
+	<id>full</id>
+	<formats>
+		<format>zip</format> <!--打包文件格式 -->
+	</formats>
+	<includeBaseDirectory>true</includeBaseDirectory>
+	<dependencySets>
+		<!-- 依赖包的输出路径 -->
+		<dependencySet>
+			<outputDirectory>/lib</outputDirectory>
+		</dependencySet>
+	</dependencySets>
+	<fileSets>
+		<fileSet>
+			<outputDirectory>/doc</outputDirectory>
+			<includes>
+				<include></include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<outputDirectory>/bin</outputDirectory>
+			<directory>${project.basedir}/target/classes/bin</directory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<outputDirectory>/conf</outputDirectory>
+			<directory>${project.basedir}/target/classes/conf</directory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<outputDirectory>/</outputDirectory>
+			<directory>src/main</directory>
+			<includes>
+				<include>src/main/java/*</include>
+				<include>src/main/resources/*</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+</assembly>
