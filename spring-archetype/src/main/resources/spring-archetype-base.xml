@@ -4,8 +4,23 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan annotation-config="true" base-package="top.taunton.spring-archetype">
+    <context:component-scan annotation-config="true" base-package="com.hostname">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
+
+    <!--Spring上下文操作工具类-->
+    <bean id="springContextUtil" class="com.hostname.util.spring.SpringContextUtil"/>
+
+    <!-- 创建线程池 -->
+    <bean id="testTaskExecutor"
+          class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+<!--        <property name="queueCapacity" value="126"/> 使用默认值2147483647-->
+        <property name="maxPoolSize" value="20" />
+        <property name="corePoolSize" value="3" />
+        <property name="keepAliveSeconds" value="0x7fffffff" />
+        <property name="threadNamePrefix" value="test-thread-"/>
+<!--        关闭时是否先等待任务执行完成-->
+        <property name="waitForTasksToCompleteOnShutdown" value="true"/>
+    </bean>
 
 </beans>
