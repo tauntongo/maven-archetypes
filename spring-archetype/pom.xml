@@ -6,7 +6,7 @@
 
     <groupId>top.taunton</groupId>
     <artifactId>spring-archetype</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <name>spring-archetype</name>
     <description>Java Spring项目Maven脚手架</description>
@@ -19,6 +19,9 @@
         <filters.base.path.main>src/main/filters</filters.base.path.main>
         <spring.version>5.1.9.RELEASE</spring.version>
         <spring.integration.version>5.1.7.RELEASE</spring.integration.version>
+        <hutool.version>4.5.7</hutool.version>
+        <aspectj.version>1.7.2</aspectj.version>
+        <logback.version>1.2.3</logback.version>
     </properties>
 
 <!--    用于上传maven包到maven镜像服务器-->
@@ -61,6 +64,38 @@
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-core</artifactId>
             <version>${spring.integration.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- 常用工具类 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+        <!--logback-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-access</artifactId>
+            <version>${logback.version}</version>
         </dependency>
 
 
