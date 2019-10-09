@@ -1,4 +1,4 @@
-package com.hostname;
+package com.hostname.spring_archetype;
 
 import org.springframework.stereotype.Service;
 

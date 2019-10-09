@@ -16,6 +16,7 @@
         <property name="useCodeAsDefaultMessage" value="false" />
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
+
     <!-- spring其实用的是hibernate的validate的实现 -->
     <bean id="validator"
           class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
@@ -24,8 +25,8 @@
     </bean>
 
 <!--    方法入参校验器 对于使用类@Validate注解标注的类，会自动为类中的方法添加切面进行校验，当然方法入参首先必须要使用了符合jsr303规范的校验注解-->
-<!--    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor">
+    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor">
         <property name="validator" ref="validator"></property>
-    </bean>-->
+    </bean>
 
 </beans>
