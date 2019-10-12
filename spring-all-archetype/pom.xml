@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hostname</groupId>
+    <artifactId>spring-all-archetype</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>spring-all-archetype</name>
+    <description>Java Spring 整合项目Maven脚手架</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <filters.base.path.test>src/test/filters</filters.base.path.test>
+        <filters.base.path.main>src/main/filters</filters.base.path.main>
+        <spring.version>5.1.9.RELEASE</spring.version>
+        <spring.integration.version>5.1.7.RELEASE</spring.integration.version>
+        <hutool.version>4.5.7</hutool.version>
+        <aspectj.version>1.7.2</aspectj.version>
+        <logback.version>1.2.3</logback.version>
+        <testng.version>7.0.0</testng.version>
+        <junit.version>4.12</junit.version>
+    </properties>
+
+<!--    用于上传maven包到maven镜像服务器-->
+<!--    前置条件-->
+<!--    在maven配置文件settings.xml中进行如下配置配置-->
+<!--    <servers>
+        <server>
+            <id>serverId-1</id>
+            <username>xxx@hostname.com</username>
+            <password>xxxxxx</password>
+        </server>
+        <server>
+            <id>serverId-2</id>
+            <username>xxx@hostname.com</username>
+            <password>xxxxxx</password>
+        </server>
+    </servers>-->
+<!--    <distributionManagement>
+        <repository>
+            <id>serverId-1</id>
+&lt;!&ndash;            在资源库中的归属目录名称 取项目名即可&ndash;&gt;
+            <name>repoSubDirectoryName-1</name>
+            <url>http://repo.hostname.com:16000/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>serverId-2</id>
+            <name>repoSubDirectoryName-2</name>
+            <url>http://repo.hostname.com:16000/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>-->
+
+    <dependencies>
+<!--        <dependency>
+            <groupId></groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>-->
+
+        <!--spring-->
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-core</artifactId>
+            <version>${spring.integration.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- 常用工具类 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+        <!--logback-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-access</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+        <!--单元测试-->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!--        <dependency>
+                    <groupId>org.junit.jupiter</groupId>
+                    <artifactId>junit-jupiter-api</artifactId>
+                    <version>${junit.version}</version>
+                    <scope>test</scope>
+                </dependency>-->
+
+    </dependencies>
+
+    <build>
+        <finalName>spring-archetype</finalName>
+
+        <filters>
+            <filter>${filter.path}</filter>
+        </filters>
+
+        <outputDirectory>target/classes</outputDirectory>
+        <testOutputDirectory>target/test-classes</testOutputDirectory>
+
+        <!--资源文件打包配置-->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+<!--                是否使用filter文件对指定目录下的资源文件进行占位符替换-->
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+
+        <plugins>
+<!--            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+
+            <!--java编译插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <!--指定编译器-->
+<!--                    <fork>true</fork>
+                    <executable>${env.JAVA_HOME_8}/bin/javac</executable>-->
+                    <!--不使用maven自带的javax.tools中的编译器，强制使用系统环境jdk中的编译器-->
+                    <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                </configuration>
+            </plugin>
+
+            <!--java doc插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                </configuration>
+            </plugin>
+
+            <!--maven插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <delimiters>
+                        <delimiter>${*}</delimiter>     <!-- 使用${..}作为占位符 -->
+                        <!--<delimiter>@*@</delimiter>-->
+                    </delimiters>
+                    <useDefaultDelimiters>true</useDefaultDelimiters>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!--打包插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptors>
+                        <descriptor>package.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <!--默认使用此profile-->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <filter.path>${filters.base.path.main}/dev-filter.properties</filter.path>
+            </properties>
+<!--            <build>
+                <filters>
+                    <filter>${filters.base.path.main}/dev-filter.properties</filter>
+                </filters>
+            </build>-->
+        </profile>
+        <profile>
+            <id>test</id>
+<!--            <build>
+                <filters>
+                    <filter>${filters.base.path.main}/test-filter.properties</filter>
+                </filters>
+            </build>-->
+            <properties>
+                <filter.path>${filters.base.path.main}/test-filter.properties</filter.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>prd</id>
+<!--            <build>
+                <filters>
+                    <filter>${filters.base.path.main}/prd-filter.properties</filter>
+                </filters>
+            </build>-->
+            <properties>
+                <filter.path>${filters.base.path.main}/prd-filter.properties</filter.path>
+            </properties>
+        </profile>
+    </profiles>
+
+
+</project>
