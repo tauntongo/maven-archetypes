@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <context:component-scan annotation-config="true" base-package="com.hostname">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+    <!--启用注解代理驱动-->
+    <!--expose-proxy 是否暴露当前代理对象为ThreadLocal模式  当目标对象内部调用其他方法（其他方法上也有代理）时，
+    这时无法触发其他方法上的切面，必须配置了expose-proxy=true且调用其他方法时通过AopContext.currentProxy().methodB()
+    这样调用（而不是this.methodB()），才能触发其他方法上的切面-->
+    <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
+
+    <!--Spring上下文操作工具类-->
+    <bean id="springContextUtil" class="com.hostname.util.spring.SpringContextUtil"/>
+
+    <!-- 创建线程池 -->
+    <bean id="testTaskExecutor"
+          class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+<!--        <property name="queueCapacity" value="126"/> 使用默认值2147483647-->
+        <property name="maxPoolSize" value="20" />
+        <property name="corePoolSize" value="3" />
+        <property name="keepAliveSeconds" value="0x7fffffff" />
+        <property name="threadNamePrefix" value="test-thread-"/>
+<!--        关闭时是否先等待任务执行完成-->
+        <property name="waitForTasksToCompleteOnShutdown" value="true"/>
+    </bean>
+
+</beans>
