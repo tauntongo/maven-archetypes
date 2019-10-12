@@ -1,6 +1,4 @@
 # maven-archetypes
-maven-Java脚手架
-
 ## 使用事项
 
 ### 安装maven脚手架
