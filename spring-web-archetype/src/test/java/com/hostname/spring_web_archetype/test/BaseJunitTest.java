@@ -1,4 +1,4 @@
-package com.hostname.test;
+package com.hostname.spring_web_archetype.test;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.result.*;
  * @since
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath*:spring-all-archetype-dependencies.xml"})
+@ContextConfiguration(locations = { "classpath*:spring-web-archetype-dependencies.xml"})
 public class BaseJunitTest {
 
     protected Logger LOGGER = LoggerFactory.getLogger(this.getClass());

@@ -1,6 +1,6 @@
-package com.hostname.test;
+package com.hostname.spring_web_archetype.test;
 
-import com.hostname.SayHiService;
+import com.hostname.spring_web_archetype.SayHiService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

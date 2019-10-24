@@ -1,4 +1,4 @@
-package com.hostname.launcher;
+package com.hostname.spring_all_archetype.launcher;
 
 /**
  * <p>启动spring容器时的配置文件路径配置类</p>

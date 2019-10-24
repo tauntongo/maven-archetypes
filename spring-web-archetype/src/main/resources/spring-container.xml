@@ -7,7 +7,7 @@
     <context:property-placeholder
             ignore-unresolvable="true" location="classpath*:conf/spring-container.properties" />
 
-    <bean id="containerConfig" class="com.hostname.spring_all_archetype.launcher.ContainerConfig">
+    <bean id="containerConfig" class="com.hostname.spring_web_archetype.launcher.ContainerConfig">
         <property name="appContextPath"
                   value="${spring.container.config.location}" />
     </bean>

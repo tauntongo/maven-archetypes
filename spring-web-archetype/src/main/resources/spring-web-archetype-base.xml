@@ -16,7 +16,7 @@
     <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
 
     <!--Spring上下文操作工具类-->
-    <bean id="springContextUtil" class="com.hostname.spring_all_archetype.util.spring.SpringContextUtil"/>
+    <bean id="springContextUtil" class="com.hostname.spring_web_archetype.util.spring.SpringContextUtil"/>
 
     <!-- 创建线程池 -->
     <bean id="testTaskExecutor"

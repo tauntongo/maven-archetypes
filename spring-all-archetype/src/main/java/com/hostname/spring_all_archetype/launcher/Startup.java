@@ -1,4 +1,4 @@
-package com.hostname.launcher;
+package com.hostname.spring_all_archetype.launcher;
 
 import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

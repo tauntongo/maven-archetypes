@@ -1,4 +1,4 @@
-package com.hostname.util.spring;
+package com.hostname.spring_web_archetype.util.spring;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
