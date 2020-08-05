@@ -18,7 +18,7 @@
         <filters.base.path.test>src/test/filters</filters.base.path.test>
         <filters.base.path.main>src/main/filters</filters.base.path.main>
         <spring.version>5.1.9.RELEASE</spring.version>
-        <spring.integration.version>5.1.7.RELEASE</spring.integration.version>
+        <spring.integration.version>5.2.0.RELEASE</spring.integration.version>
         <hutool.version>4.5.7</hutool.version>
         <aspectj.version>1.7.2</aspectj.version>
         <logback.version>1.2.3</logback.version>
