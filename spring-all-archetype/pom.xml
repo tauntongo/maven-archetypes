@@ -21,7 +21,7 @@
         <aspectj.version>1.7.2</aspectj.version>
         <logback.version>1.2.3</logback.version>
         <testng.version>7.0.0</testng.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
 
 <!--    用于上传maven包到maven镜像服务器-->
