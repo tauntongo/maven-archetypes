@@ -3,7 +3,7 @@ package com.hostname.spring_all_archetype.launcher;
 /**
  * <p>启动spring容器时的配置文件路径配置类</p>
  *
- * @author <a href="mailto:tangdong@kftpay.com.cn">Taunton</a>
+ * @author <a href="mailto:tangduns945@gmail.com">Taunton</a>
  * @date Created in 2019-10-09 15:18
  * @since
  */

@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * <p>spring容器启动器</p>
  *
- * @author <a href="mailto:tangdong@kftpay.com.cn">Taunton</a>
+ * @author <a href="mailto:tangduns945@gmail.com">Taunton</a>
  * @date Created in 2019-10-09 15:10
  * @since
  */
