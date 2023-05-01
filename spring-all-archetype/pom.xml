@@ -32,7 +32,7 @@
         <hutool.version>4.5.7</hutool.version>
         <aspectj.version>1.7.2</aspectj.version>
         <logback.version>1.2.3</logback.version>
-        <testng.version>7.0.0</testng.version>
+        <testng.version>7.7.0</testng.version>
         <junit.version>4.13.1</junit.version>
     </properties>
 
